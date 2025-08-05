@@ -67,10 +67,8 @@
 
   <div class="container py-5">
     <h2 class="text-center mb-4 fw-bold"> 
-        
-روابط فرسان النعمة
-
-</h2>
+      روابط فرسان النعمة
+    </h2>
 
     <?php
       $apiUrl = 'https://opensheet.elk.sh/1TiqMmx4srBHp6oQIPOmuIkHOgj7ulQ-IDFb4unX_Uus/Sheet1';
@@ -78,6 +76,7 @@
       $data = json_decode($json, true);
 
       if (is_array($data)) {
+        $data = array_reverse($data); // ترتيب تنازلي
         foreach ($data as $item) {
           $name = htmlspecialchars($item['name']);
           $url = htmlspecialchars($item['url']);
